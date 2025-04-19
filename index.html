@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCover - Защитная плёнка для смартфона</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --text-color: #2c3e50;
+            --light-bg: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: clamp(15px, 3vw, 25px);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: min(90vw, 500px);
+            padding: clamp(25px, 5vw, 40px);
+            text-align: center;
+        }
+        
+        .logo-container {
+            margin-bottom: clamp(15px, 4vw, 25px);
+        }
+        
+        .logo-img {
+            width: clamp(60px, 20vw, 100px);
+            height: clamp(60px, 20vw, 100px);
+            margin: 0 auto 10px;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+        
+        .logo-text {
+            font-size: clamp(2rem, 8vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-color);
+            line-height: 1;
+        }
+        
+        .logo-subtext {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            color: #6c757d;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            padding: clamp(12px, 3vw, 15px);
+            font-size: clamp(1rem, 4vw, 1.1rem);
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        .social-btn.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .social-btn.telegram {
+            background: linear-gradient(135deg, #0088cc, #00aced);
+        }
+        
+        .social-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        
+        .social-btn.vk {
+            background: linear-gradient(135deg, #4a76a8, #2a5885);
+        }
+        
+        .social-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: clamp(20px, 5vw, 30px) 0;
+        }
+        
+        .form-container {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #4895ef 100%);
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <!-- Замените src на путь к вашему изображению -->
+            <img src="logo.png" alt="iCover Logo" class="logo-img">
+            <h1 class="logo-text">iCover</h1>
+            <p class="logo-subtext">Защитная плёнка для вашего смартфона</p>
+        </div>
+        
+        <button class="btn" id="signupBtn">
+            <i class="fas fa-calendar-alt"></i>
+            Записаться на поклейку
+        </button>
+        
+        <div class="social-btns">
+            <a href="https://instagram.com/ваш_ник" class="btn social-btn instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+            <a href="https://t.me/ваш_ник" class="btn social-btn telegram" target="_blank">
+                <i class="fab fa-telegram-plane"></i>
+                Telegram
+            </a>
+            <a href="https://wa.me/ваш_номер" class="btn social-btn whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+            <a href="https://vk.com/ваш_ник" class="btn social-btn vk" target="_blank">
+                <i class="fab fa-vk"></i>
+                ВКонтакте
+            </a>
+        </div>
+        
+        <div class="form-container" id="signupForm">
+            <div class="form-group">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" placeholder="Иван Иванов">
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" placeholder="+7 (999) 123-45-67">
+            </div>
+            <button class="btn submit-btn" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+                Отправить
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupBtn').addEventListener('click', function() {
+            const form = document.getElementById('signupForm');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            if (name && phone) {
+                alert(`Спасибо, ${name}! Мы скоро с вами свяжемся по номеру ${phone}.`);
+                document.getElementById('signupForm').style.display = 'none';
+            } else {
+                alert('Пожалуйста, заполните все поля!');
+            }
+        });
+    </script>
+</body>
+</html>
