@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iCover - Бронепленка для телефона </title>
+    <title>iCover - Бронепленка для смартфона</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -111,7 +111,12 @@
         }
         
         .social-btn.phone {
-            background: linear-gradient(135deg, #ff3333, #cc0000);
+            background: linear-gradient(135deg, #ff0000, #b30000);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .social-btn.phone:hover {
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
         }
         
         .social-btns {
@@ -120,15 +125,34 @@
             gap: 8px;
             margin: clamp(20px, 5vw, 30px) 0;
         }
+        
+        /* Стили для карты 2ГИС */
+        .dg-widget-container {
+            width: 100% !important;
+            height: 300px !important;
+            border-radius: 15px !important;
+            overflow: hidden !important;
+            margin-top: 20px !important;
+            box-shadow: var(--shadow) !important;
+        }
+        
+        .dg-widget-link {
+            display: none !important; /* Скрываем текстовые ссылки */
+        }
+        
+        .map-caption {
+            margin-top: 10px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo-container">
-            <!-- Замените src на путь к вашему изображению -->
             <img src="logo.png" alt="iCover Logo" class="logo-img">
             <h1 class="logo-text">iCover</h1>
-            <p class="logo-subtext">Бронепленка для вашего телефона в Нижневартовске</p>
+            <p class="logo-subtext">Бронепленка для вашего смартфона</p>
         </div>
         
         <div class="social-btns">
@@ -153,6 +177,34 @@
                 Instagram
             </a>
         </div>
+        
+        <!-- Карта 2ГИС -->
+        <div id="dg-widget">
+            <a class="dg-widget-link" href="http://2gis.ru/nizhnevartovsk/firm/70000001100565219/center/76.59009218215944,60.9335493242794/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Нижневартовска</a>
+            <div class="dg-widget-link"><a href="http://2gis.ru/nizhnevartovsk/firm/70000001100565219/photos/70000001100565219/center/76.59009218215944,60.9335493242794/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div>
+            <div class="dg-widget-link"><a href="http://2gis.ru/nizhnevartovsk/center/76.590093,60.933348/zoom/16/routeTab/rsType/bus/to/76.590093,60.933348╎iCover?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до iCover</a></div>
+            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+            <script charset="utf-8">
+                new DGWidgetLoader({
+                    "width": "100%",
+                    "height": 300,
+                    "borderColor": "transparent",
+                    "pos": {
+                        "lat": 60.9335493242794,
+                        "lon": 76.59009218215944,
+                        "zoom": 16
+                    },
+                    "opt": {
+                        "city": "nizhnevartovsk"
+                    },
+                    "org": [{
+                        "id": "70000001100565219"
+                    }]
+                });
+            </script>
+            <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+        </div>
+        <p class="map-caption">Мы находимся в Нижневартовске</p>
     </div>
 </body>
 </html>
